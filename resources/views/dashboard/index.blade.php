@@ -12,6 +12,9 @@
     {{-- my style css --}}
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+    {{-- bootstrap js --}}
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -21,37 +24,12 @@
         <div class="px-lg-5">
 
             <!-- header -->
-            <header class="navbar">
-                <a class="navbar-brand btn btn-dark text-white" href="/">
+            <header class="navbar mt-4">
+                <a class="navbar-brand" href="/dashboard">
                     <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo"
                         width="30" height="24" class="d-inline-block align-text-top">
                     Bootstrap
                 </a>
-                <button class="navbar-toggler position-absolute d-md-none collapsed" style="top: 0.25rem;right: 1rem;"
-                    type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                @auth
-                    Hello {{ Auth::user()->name }}
-                    <div class="navbar-nav">
-                        <div class="nav-item text-nowrap">
-                            <form action="/logout" method="POST">
-                                @csrf
-                                <button class="btn btn-dark d-flex align-items-center" type="submit">
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M6 2h9a2 2 0 0 1 2 2v2h-2V4H6v16h9v-2h2v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
-                                            <path fill="currentColor"
-                                                d="M16.09 15.59L17.5 17l5-5l-5-5l-1.41 1.41L18.67 11H9v2h9.67z" />
-                                        </svg></span>
-                                    <span>Logout</span>
-                                </button>
-                            </form>
-                        @endauth
-                    </div>
-                </div>
             </header>
 
             <!-- For demo purpose -->

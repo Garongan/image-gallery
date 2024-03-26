@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Gallery - {{ $title }}</title>
 
     {{-- bootstrap css --}}
@@ -13,17 +12,15 @@
     {{-- my style css --}}
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+    {{-- bootstrap js --}}
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
-    <div class="flex min-vh-100 d-flex justify-content-center align-items-center" style="background-color: #9A616D;">
-        {{-- /content --}}
-        @yield('container')
-        {{-- /content --}}
-    </div>
+    
 </body>
 
 </html>
