@@ -21,6 +21,14 @@
                                     </div>
                                 @endif
 
+                                @if (session()->has('loginError'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ session('loginError') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endif
+
                                 <form action="/login" method="POST">
                                     @csrf
                                     <div class="d-flex align-items-center mb-3 pb-1">
@@ -46,8 +54,16 @@
 
                                     <div class="form-outline mb-4">
                                         <input type="password" id="password" name="password"
-                                            class="form-control form-control-lg" required />
+                                            class="form-control form-control-lg @error('password')
+                                                is-invalid
+                                            @enderror"
+                                            required />
                                         <label class="form-label" for="password">Password</label>
+                                        @error('password')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
 
                                     <div class="pt-1 mb-4">
