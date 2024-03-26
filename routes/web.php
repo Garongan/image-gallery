@@ -26,3 +26,4 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::resource('register', RegisterController::class)->middleware('guest');
 Route::resource('gallery', GalleryController::class)->middleware('auth');
+
