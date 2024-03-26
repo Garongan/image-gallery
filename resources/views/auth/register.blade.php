@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('container')
-    <div class="py-5">
+    <section class="py-5">
         <div class="row w-100 d-flex justify-content-center align-items-center">
             <div class="col col-xl-10">
                 <div class="card" style="border-radius: 1rem;">
@@ -72,5 +72,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection

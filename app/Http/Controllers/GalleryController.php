@@ -18,18 +18,31 @@ class GalleryController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('gallery.create', [
+            'title' => 'Upload Image'
+        ]);
+    }
+
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
+            'name' => 'required|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imageName = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('images'), $imageName);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image')->store('gallery');
+            $validated['path'] = $image;
+            $validated['size'] = $request->file('image')->getSize();
+            $validated['extension'] = $request->file('image')->getMimeType();
+        }
+        $validated['user_id'] = auth()->id();
 
-        return back()
-            ->with('success', 'You have successfully upload image.')
-            ->with('image', $imageName);
+        Gallery::create($validated);
+
+        return redirect('/gallery')->with('success', 'Image has been uploaded');
     }
 
     public function show(Gallery $gallery)
@@ -40,7 +53,34 @@ class GalleryController extends Controller
         ]);
     }
 
-    public function destroy(Gallery $gallery){
+    public function edit(Gallery $gallery){
+        return view('gallery.edit', [
+            'title' => 'Edit Image',
+            'gallery' => $gallery
+        ]);
+    }
+
+    public function update(Request $request, Gallery $gallery){
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            Storage::delete($request->oldImage);
+            $image = $request->file('image')->store('req$request');
+            $validated['path'] = $image;
+            $validated['size'] = $request->file('image')->getSize();
+            $validated['extension'] = $request->file('image')->getMimeType();
+        }
+
+        Gallery::where('id', $gallery->id)->update($validated);
+
+        return redirect('/gallery')->with('success', 'Image has been updated');
+    }
+
+    public function destroy(Gallery $gallery)
+    {
         if ($gallery->path) {
             Storage::delete($gallery->path);
         }

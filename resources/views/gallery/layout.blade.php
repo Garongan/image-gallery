@@ -11,7 +11,6 @@
 
     {{-- my style css --}}
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
 
     {{-- bootstrap js --}}
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
@@ -28,7 +27,7 @@
                 <a class="navbar-brand" href="/">
                     <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo"
                         width="30" height="24" class="d-inline-block align-text-top">
-                    Bootstrap
+                    Gallery
                 </a>
 
                 {{-- auth view --}}
@@ -76,7 +75,7 @@
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <form action="/gallery/create" method="post">
+                                        <form action="/gallery/create" method="GET">
                                             <button type="submit" class="btn btn-outline-dark w-100">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-cloud-arrow-up" viewBox="0 0 16 16">

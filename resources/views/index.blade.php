@@ -28,7 +28,7 @@
                 <a class="navbar-brand" href="/">
                     <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo"
                         width="30" height="24" class="d-inline-block align-text-top">
-                    Bootstrap
+                    Gallery
                 </a>
 
                 @guest
@@ -89,7 +89,7 @@
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <form action="/gallery/create" method="post">
+                                        <form action="/gallery/create" method="GET">
                                             <button type="submit" class="btn btn-outline-dark w-100">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-cloud-arrow-up" viewBox="0 0 16 16">
@@ -146,7 +146,7 @@
                 <!-- Gallery item -->
                 @foreach ($gallery as $item)
                     <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="bg-white rounded shadow-sm"><img src="{{ $item->path }}"
+                        <div class="bg-white rounded shadow-sm"><img src="{{ asset('storage/' . $item->path) }}"
                                 alt="{{ $item->name }}" class="img-fluid card-img-top">
                             <div class="p-4">
                                 <p class="small text-muted mb-0">{{ $item->name }}</p>
