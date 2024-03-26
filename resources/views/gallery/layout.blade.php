@@ -36,7 +36,7 @@
                     Hello {{ auth()->user()->name }}
                     {{-- user panel start --}}
                     <aside class="">
-                        <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas"
+                        <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-list" viewBox="0 0 16 16">
@@ -55,7 +55,7 @@
                             <div class="offcanvas-body">
                                 <div class="row row-cols-1 gap-3">
                                     <div class="col">
-                                        <a href="/" class="btn btn-dark w-100">
+                                        <a href="/" class="btn btn-outline-dark w-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                                                 <path
@@ -65,7 +65,7 @@
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a href="/gallery" class="btn btn-dark w-100">
+                                        <a href="/gallery" class="btn btn-outline-dark w-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
                                                 <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
@@ -76,8 +76,8 @@
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <form action="/gallery" method="post">
-                                            <button type="submit" class="btn btn-dark w-100">
+                                        <form action="/gallery/create" method="post">
+                                            <button type="submit" class="btn btn-outline-dark w-100">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-cloud-arrow-up" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd"
@@ -92,7 +92,7 @@
                                     <div class="col">
                                         <form action="/logout" method="POST">
                                             @csrf
-                                            <button class="btn btn-dark w-100" type="submit">
+                                            <button class="btn btn-outline-dark w-100" type="submit">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd"
