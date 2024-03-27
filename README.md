@@ -16,3 +16,9 @@
 - read all image from user uploaded
 - update image for logged user by name
 - delete image for logged user by name
+
+## Instalation guide
+- run `composer install`
+- run `php artisan migrate:fresh`
+- run `php artisan storage:link`
+- run `php artisan serve`
