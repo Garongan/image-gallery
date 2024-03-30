@@ -8,13 +8,10 @@
     <title>Gallery - {{ $title }}</title>
 
     {{-- bootstrap css --}}
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
     {{-- my style css --}}
     <link rel="stylesheet" href="assets/css/style.css">
-
-    {{-- bootstrap js --}}
-    <script src="assets/js/bootstrap.min.js"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -168,6 +165,9 @@
             </div>
         </div>
     </div>
+
+    {{-- bootstrap js --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
