@@ -1,4 +1,4 @@
-@extends('gallery.layout')
+@extends('layouts.gallery')
 
 @section('container')
     <section class="d-flex justify-content-center my-5">
