@@ -48,5 +48,4 @@
     </form>
     {{-- input end --}}
 </section>
-<script src="{{ asset('js/script.js') }}"></script>
 @endsection
