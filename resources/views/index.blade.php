@@ -8,7 +8,7 @@
     <title>Gallery - {{ $title }}</title>
 
     {{-- bootstrap css --}}
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ secure_asset('assets/css/bootstrap.min.css') }}">
 
     {{-- my style css --}}
     <link rel="stylesheet" href="{{ secure_asset('assets/css/style.css') }}">
