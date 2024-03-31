@@ -7,10 +7,10 @@
     <title>Gallery - {{ $title }}</title>
 
     {{-- bootstrap css --}}
-    <link rel="stylesheet" href="{{ mix('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('assets/css/bootstrap.min.css') }}">
 
     {{-- my style css --}}
-    <link rel="stylesheet" href="{{ mix('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('assets/css/style.css') }}">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -108,7 +108,7 @@
     </div>
 
     {{-- bootstrap js --}}
-    <script src="{{ mix('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ secure_asset('assets/js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>

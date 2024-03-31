@@ -48,5 +48,5 @@
     </form>
     {{-- input end --}}
 </section>
-<script src="{{ mix('assets/js/script.js') }}"></script>
+<script src="{{ secure_asset('assets/js/script.js') }}"></script>
 @endsection
