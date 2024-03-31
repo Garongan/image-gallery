@@ -29,7 +29,7 @@
 
                             <!-- img thumbnail -->
                             <td>
-                                <img src="{{ asset('storage/' . $item->path) }}" class="img-thumbnail p-0"
+                                <img src="{{ 'https://www.dropbox.com/scl/fi/bc00fllqpltfmv3bl378k/' . $item->path . '?rlkey=ib55dmm5jbaqfqplygfaf3emk&dl=1' }}" class="img-thumbnail p-0"
                                     alt="{{ $item->name }}" style="max-height: 50px">
                             </td>
                             <!-- /img thumbnail -->

@@ -8,7 +8,7 @@
         <div class="row row-cols-1 gap-3">
             {{-- img name --}}
             <div class="col">
-                <img class="img-preview img-fluid mb-3 pb-3" src="{{ asset('storage/' . $gallery->path) }}">
+                <img class="img-preview img-fluid mb-3 pb-3" src="{{ 'https://www.dropbox.com/scl/fi/bc00fllqpltfmv3bl378k/' . $item->path . '?rlkey=ib55dmm5jbaqfqplygfaf3emk&dl=1' }}">
                 <input type="hidden" name="oldImage" value="{{ $gallery->path }}">
                 <input id="image" name="image" class="form-control @error('image') is-invalid @enderror" type="file" onchange="previewImg()" accept="image/png, image/gif, image/jpeg, image/jpg, image/svg+xml" />
                 @error('image')

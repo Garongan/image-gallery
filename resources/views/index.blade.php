@@ -159,7 +159,7 @@
                 <!-- Gallery item -->
                 @foreach ($gallery as $item)
                 <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                    <div class="bg-white rounded shadow-sm"><img src="{{ 'https://www.dropbox.com/scl/fi/bc00fllqpltfmv3bl378k/' . $item->path . '?dl=1' }}" class="img-fluid card-img-top">
+                    <div class="bg-white rounded shadow-sm"><img src="{{ 'https://www.dropbox.com/scl/fi/bc00fllqpltfmv3bl378k/' . $item->path . '?rlkey=ib55dmm5jbaqfqplygfaf3emk&dl=1' }}" class="img-fluid card-img-top">
                         <div class="p-4">
                             <p class="small text-muted mb-0">{{ $item->name }}</p>
                             <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
