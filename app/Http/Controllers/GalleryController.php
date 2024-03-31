@@ -33,8 +33,8 @@ class GalleryController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image')->store('gallery');
-            $validated['path'] = $image;
+            $path = Storage::disk('dropbox')->put('', $request->file('image'));
+            $validated['path'] = $path;
             $validated['size'] = $request->file('image')->getSize();
             $validated['extension'] = $request->file('image')->getMimeType();
         }
@@ -67,9 +67,9 @@ class GalleryController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            Storage::delete($request->oldImage);
-            $image = $request->file('image')->store('req$request');
-            $validated['path'] = $image;
+            Storage::disk('dropbox')->delete($request->oldImage);
+            $path = Storage::disk('dropbox')->put('', $request->file('image'));
+            $validated['path'] = $path;
             $validated['size'] = $request->file('image')->getSize();
             $validated['extension'] = $request->file('image')->getMimeType();
         }
@@ -82,7 +82,7 @@ class GalleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         if ($gallery->path) {
-            Storage::delete($gallery->path);
+            Storage::disk('dropbox')->delete($gallery->path);
         }
 
         Gallery::destroy($gallery->id);
