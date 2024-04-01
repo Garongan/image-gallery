@@ -11,7 +11,6 @@ class GalleryController extends Controller
     //
     public function index()
     {
-
         return view('gallery.index', [
             'title' => 'List of my images',
             'images' => Gallery::where('user_id', auth()->id())->paginate(10)
@@ -33,7 +32,9 @@ class GalleryController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $path = Storage::disk('dropbox')->put('', $request->file('image'));
+            $fileName = Storage::disk('google')->put('', $request->file('image'));
+            $validated['fileName'] = $fileName;
+            $path = Storage::disk('google')->url('/' . $fileName);
             $validated['path'] = $path;
             $validated['size'] = $request->file('image')->getSize();
             $validated['extension'] = $request->file('image')->getMimeType();
@@ -53,22 +54,28 @@ class GalleryController extends Controller
         ]);
     }
 
-    public function edit(Gallery $gallery){
+    public function edit(Gallery $gallery)
+    {
         return view('gallery.edit', [
             'title' => 'Edit Image',
             'gallery' => $gallery
         ]);
     }
 
-    public function update(Request $request, Gallery $gallery){
+    public function update(Request $request, Gallery $gallery)
+    {
         $validated = $request->validate([
             'name' => 'required|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
-            Storage::disk('dropbox')->delete($request->oldImage);
-            $path = Storage::disk('dropbox')->put('', $request->file('image'));
+            $details =  explode('/', $request->oldImage);
+            $id = substr($details[3], 6, 33);
+            Storage::disk('google')->delete($id);
+            $fileName = Storage::disk('google')->put('', $request->file('image'));
+            $validated['fileName'] = $fileName;
+            $path = Storage::disk('google')->url('/' . $fileName);
             $validated['path'] = $path;
             $validated['size'] = $request->file('image')->getSize();
             $validated['extension'] = $request->file('image')->getMimeType();
@@ -82,7 +89,9 @@ class GalleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         if ($gallery->path) {
-            Storage::disk('dropbox')->delete($gallery->path);
+            $details =  explode('/', $gallery->path);
+            $id = substr($details[3], 6, 33);
+            Storage::disk('google')->delete($id);
         }
 
         Gallery::destroy($gallery->id);

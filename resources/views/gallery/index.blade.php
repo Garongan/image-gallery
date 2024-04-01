@@ -29,8 +29,12 @@
 
                             <!-- img thumbnail -->
                             <td>
-                                <img src="{{ 'https://www.dropbox.com/scl/fi/bc00fllqpltfmv3bl378k/' . $item->path . '?rlkey=ib55dmm5jbaqfqplygfaf3emk&dl=1' }}" class="img-thumbnail p-0"
-                                    alt="{{ $item->name }}" style="max-height: 50px">
+                                <?php
+                                $image = str_replace('https://drive.google.com/uc?id=', 'https://lh3.googleusercontent.com/d/', $item->path);
+                                $image = str_replace('&export=media', '=s0', $image);
+                                ?>
+                                <img src="{{ $image }}" class="img-thumbnail p-0" alt="{{ $item->name }}"
+                                    style="max-height: 50px">
                             </td>
                             <!-- /img thumbnail -->
 

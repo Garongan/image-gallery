@@ -39,7 +39,7 @@
             </div>
             {{-- name image end --}}
         </div>
-        <div class="mt-3">
+        <div class="mt-3 d-flex gap-2">
             <a href="/gallery" class="btn btn-outline-dark text-uppercase">Back</a>
             <button type="submit" name="submit" class="btn btn-dark text-uppercase">
                 Upload

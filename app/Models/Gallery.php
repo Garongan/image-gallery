@@ -15,6 +15,7 @@ class Gallery extends Model
 
     protected $fillable = [
         'name',
+        'fileName',
         'size',
         'extension',
         'user_id',

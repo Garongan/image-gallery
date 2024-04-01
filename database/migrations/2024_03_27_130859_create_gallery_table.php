@@ -16,6 +16,7 @@ class CreateGalleryTable extends Migration
         Schema::create('gallery', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('fileName');
             $table->bigInteger('size');
             $table->string('extension');
             $table->unsignedBigInteger('user_id');
